@@ -24,7 +24,8 @@ def cliente_recibe_archivo():
                 datos = cliente_socket.recv(1024)  # Recibir hasta 1024 bytes
                 if not datos:  # Si no hay más datos, salir del bucle
                     break
-                archivo.write(datos)  # Escribir los datos recibidos en el archivo
+                datos_mayusculas = datos.decode('utf-8', errors='ignore').upper().encode('utf-8')
+                archivo.write(datos_mayusculas)  # Escribir los datos recibidos en el archivo
 
         print(f"Archivo recibido y guardado como '{archivo_guardado}'.")
 

@@ -34,12 +34,12 @@ def servidor_envia_archivo():
 
     # Enviar el archivo al cliente
     archivo = open(archivo_nombre, "rb")  # Abrir el archivo en modo lectura binaria para enviarlo
-    archivo_data = archivo.read(1024)    # Leer el primer bloque de hasta 1024 bytes
+    archivo_data = archivo.read(2048)    # Leer el primer bloque de hasta 2048 bytes
 
     # Bucle para enviar todo el archivo al cliente en bloques
     while archivo_data:  # Mientras haya datos en el archivo
         conexion.send(archivo_data)  # Enviar el bloque leído al cliente
-        archivo_data = archivo.read(1024)  # Leer el siguiente bloque de hasta 1024 bytes
+        archivo_data = archivo.read(2048)  # Leer el siguiente bloque de hasta 2048 bytes
 
     # Cerrar el archivo después de enviarlo
     archivo.close()

@@ -2,7 +2,7 @@ import socket  # Importamos el módulo socket
 
 def cliente_simple():
     # Configuración del servidor al que nos conectaremos
-    host = "127.0.0.1"  # Dirección del servidor (local en este caso)
+    host = "localhost"  # Dirección del servidor (local en este caso)
     puerto = 65432      # Puerto del servidor (debe coincidir con el del servidor)
 
     try:
@@ -21,7 +21,7 @@ def cliente_simple():
 
         # Si el servidor envía más de 1024 bytes, el cliente tendrá que llamar a recv() 
         # varias veces para recibir todos los datos.
-        saludo = cliente_socket.recv(1024)  # Tamaño del búfer en bytes
+        saludo = cliente_socket.recv(2048)  # Tamaño del búfer en bytes
         print(f"Mensaje recibido del servidor: {saludo.decode()}")  # Decodificamos los bytes recibidos a texto
 
     except socket.error as e:
